@@ -1,0 +1,11 @@
+.topic {
+    border: 1px solid;
+    padding: 25px;
+    margin: 25px;
+}
+.topic h4 {
+    margin-top: 0;
+}
+ol {
+    margin-bottom: 0;
+}

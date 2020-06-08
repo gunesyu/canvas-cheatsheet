@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="topic">
+        <h4>1. Canvas properties for drawing</h4>
+        <ol>
+            <li><strong><em>fillStyle</em></strong>: style to use when filling objects; property values: css color, gradient, pattern; defaults to black</li>
+            <li><strong><em>strokeStyle</em></strong>: style to use on object strokes; properties are same with fillStyle</li>
+            <li><strong><em>lineWidth</em></strong>: width og the pen to use when drawing lines; defaults to 1</li>
+            <hr>
+            <li>2 STEPS: first; set the fill and stroke styles. then; call drawing operations</li>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>2. Rectangles</h4>
+        <ol>
+            <li>Rectangles are the only primitive shape supported by canvas</li>
+            <hr>
+            <li>
+                <strong>
+                    <em>clearRect(x, y, w, h)</em>
+                </strong>:
+                Erases the given rectangle on canvas
+            </li>
+            <li>
+                <strong>
+                    <em>strokeRect(x, y, w, h)</em>
+                </strong>:
+                Strokes the specified rectangle with current stroke style
+            </li>
+            <li>
+                <strong>
+                    <em>fillRect(x, y, w, h)</em>
+                </strong>:
+                Fills the specified rectangle with current fill style
+            </li>
+            <br>
+            <br>
+            <button onclick="drawC1()">Draw</button>
+            <br>
+            <canvas id="c1"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>3. Lines</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>moveTo(x, y)</em>
+                </strong>:
+                Moves the drawing pen to x,y
+            </li>
+            <li>
+                <strong>
+                    <em>lineTo(x, y)</em>
+                </strong>:
+                Draws a line from current pos to x,y
+            </li>
+            <li>
+                <strong>
+                    <em>beginPath()</em>
+                </strong>:
+                Begins a set of multiple drawing commands as a single path
+            </li>
+            <li>
+                <strong>
+                    <em>stroke()</em>
+                </strong>:
+                Strokes the currently open path that was started by beginPath
+            </li>
+            <br>
+            <br>
+            <button onclick="drawC2()">Draw</button>
+            <br>
+            <canvas id="c2"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>4. State</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>save()</em>
+                </strong>:
+                Saves the current drawing context
+            </li>
+            <li>
+                <strong>
+                    <em>restore()</em>
+                </strong>:
+                Restores the most recent saved drawing context and makes it current
+            </li>
+            <br>
+            <br>
+            <button onclick="drawC3()">Draw</button>
+            <br>
+            <canvas id="c3"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>5. Arcs and Paths</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>path</em>
+                </strong>:
+                a set of connected points, and either is open or closed
+            </li>
+            <li>
+                The drawing context always has one and only one current path
+            </li>
+            <li>
+                <strong>
+                    <em>beginPath()</em>, <em>closePath()</em>
+                </strong>
+            </li>
+            <hr>
+            <li>
+                <strong>
+                    <em>arc(x, y, radius, startAngle, endAngle [, anticlockwise])</em>
+                </strong>:
+                curves that are portions of a circle == circle is a full arc
+            </li>
+            <br>
+            <br>
+            <button onclick="drawC4()">Draw</button>
+            <br>
+            <canvas id="c4"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>6. Curves</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>bezier</em>
+                </strong>:
+                is defined by 4 points: start, end, and two control points to determine how the curve is drawing from start to end
+            </li>
+            <li>
+                <strong>
+                    <em>bezierCurveTo(cx1, cy1, cx2, cy2, end1, end2)</em>
+                </strong>:
+                Draw a bezier curve starting at the current pen position using the control points (cx1, cy1) and (cx2, cy2) and ending at (end1, end2)
+            </li>
+            <hr>
+            <li>
+                <strong>
+                    <em>quadratic</em>
+                </strong>:
+                is defined by 3 points: start, end, and one control point
+            </li>
+            <li>
+                <strong>
+                    <em>quadraticCurveTo(cx, cy, x, y)</em>
+                </strong>:
+                Draw a quadratic curve starting at the current pen position using the control point (cx, cy) and ending at (x, y)
+            </li>
+            <br>
+            <br>
+            <button onclick="drawC5()">Draw</button>
+            <br>
+            <canvas id="c5"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>7. Texts</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>fillText(str, x, y [, maxW])</em>
+                </strong>:
+                Renders the text at (x, y) but no wider than maxW
+            </li>
+            <li>
+                <strong>
+                    <em>strokeText(str, x, y [, maxW])</em>
+                </strong>:
+                Renders the text at (x, y) but no wider than maxW
+            </li>
+            <li>
+                <strong>
+                    <em>measureText(str)</em>
+                </strong>:
+                Returns a TextMetrics object containing width of str
+            </li>
+            <li>
+                <strong>
+                    <em>font</em>, <em>textAlign</em>, <em>textBaseline</em>
+                </strong>
+            </li>
+            <br>
+            <button onclick="drawC6()">Draw</button>
+            <br>
+            <canvas id="c6"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>8. Shadows</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>shadowColor</em>, <em>shadowOffsetX</em>, <em>shadowOffsetY</em>, <em>shadowBlur</em>
+                </strong>
+            </li>
+            <br>
+            <button onclick="drawC7()">Draw</button>
+            <br>
+            <canvas id="c7"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>9. Pattern</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>ctx.createPattern(elem, type)</em>
+                </strong>:
+                elem can be image, video, other canvas
+            </li>
+            <li>
+                <strong>
+                    <em>ctx.fillStyle = pattern</em>
+                </strong>
+            </li>
+        </ol>
+    </section>
+
+
+    <section class="topic">
+        <h4>10. Gradient</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>linear</em>, <em>radial</em>
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    <em>ctx.createLinearGradient(x0, y0, x1, y1)</em>
+                </strong>:
+                Creates a linear gradient using the two points to indicate the direction
+            </li>
+            <li>
+                <strong>
+                    <em>ctx.createRadialGradient(x0, y0, r0, x1, y1, r1)</em>
+                </strong>:
+                Creates a radial gradient
+            </li>
+            <hr>
+            <li>
+                <strong>
+                    <em>gradient.addColorStop(position, color)</em>
+                </strong>:
+                Adds a color stop to the gradient; position should be between 0 and 1, color should be a css-style color
+            </li>
+            <hr>
+            <li>
+                <strong>
+                    <em>Create gradient</em> --> <em>Add color stops</em> --> <em>ctx.fillStyle = gradient</em> --> <em>Create a shape</em>
+                </strong>
+            </li>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>11. Images and Video</h4>
+        <ol>
+            <li>
+                <strong>
+                    <em>drawImage(src, x, y)</em>
+                </strong>:
+                Draws the given source image at (x, y)
+            </li>
+            <li>
+                <strong>
+                    <em>drawImage(src, x, y, w, h)</em>
+                </strong>:
+                Draws the given source image at (x, y)<br>and scales it to fit the given width and height
+            </li>
+            <li>
+                <strong>
+                    <em>drawImage(src, sx, sy, sw, sh, dx, dy, dw, dy)</em>
+                </strong>:
+                Draws the given source image at (x, y)<br>gets source image data from (sx, sy) and within the width and height given by sw and sh<br>and draws he image on the destination at (dx, dy) and scales it to fit the given width and height dw and dy
+            </li>
+            <hr>
+            <li>
+                <strong>
+                    <em>VIDEO</em>
+                </strong> is just
+                <strong>
+                    <em>drawImage with requestAnimationFrame</em>
+                </strong>
+            </li>
+            <hr>
+            <br>
+            <img src="https://media.giphy.com/media/QBjok2NBIzSR7IaDQK/giphy.gif" alt="" id="exp_img" width=260>
+            <video src="https://media.giphy.com/media/QBjok2NBIzSR7IaDQK/giphy.mp4" autoplay loop controls id="exp_vid" width=320></video>
+            <br>
+            <button onclick="drawC8()">Draw</button>
+            <br>
+            <canvas id="c8"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>12. Clipping Path</h4>
+        <ol>
+            <li>A clipping path is a type of mask</li>
+            <li>Initially, the entire canvas is the default clipping path</li>
+            <li><strong>Any path can be a clipping path</strong></li>
+            <li>
+                <strong>
+                    <em>clip()</em>
+                </strong>
+            </li>
+            <br>
+            <button onclick="drawC9()">Draw</button>
+            <br>
+            <canvas id="c9"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>13. Transforms & Opacity & Compositing</h4>
+        <ol>
+            <li>Controls how drawing is performed</li>
+            <li><strong>Any path can be a clipping path</strong></li>
+            <li>
+                <strong>
+                    <em>translate(x, y)</em>
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    <em>scale(x, y)</em>
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    <em>rotate(angle)</em>
+                </strong>:
+                For rotate from a specific point: first translate, then rotate, then translate back
+            </li>
+            <hr>
+            <li>
+                <strong>
+                    <em>ctx.globalAlpha = 0.4 (0 to 1)</em>
+                </strong>
+            </li>
+            <hr>
+            <li>
+                <strong>
+                    <em>ctx.globalCompositeOperation</em>
+                </strong>:
+                source-over, source-in, source-out, source-atop, lighter, xor, destination-over, destination-in, destination-out, destination-atop, darker, copy
+            </li>
+            <br>
+            <button onclick="drawC10()">Draw</button>
+            <br>
+            <canvas id="c10"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>14. Manipulating Raw Pixels</h4>
+        <ol>
+            <li>Pixels can be manipulated and put back into canvas</li>
+            <li>Each row of an image is composed of 4-byte pixels: RED, GREEN, BLUE, ALPHA</li>
+            <li>WARNING: <strong>SAME ORIGIN</strong></li>
+            <li>
+                <strong>
+                    <em>imgData.data</em>
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    <em>createImageData(w, h)</em>
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    <em>createImageData(srcImg)</em>
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    <em>getImageData(x, y, w, h)</em>
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    <em>putImageData(imgData, x, y [, rect])</em>
+                </strong>
+            </li>
+            <br>
+            <button onclick="drawC11()">Draw</button>
+            <br>
+            <img src="mod.png" alt="" id="exp_img_2" width=260>
+            <canvas id="c11"></canvas>
+        </ol>
+    </section>
+
+    <section class="topic">
+        <h4>Example: Double Buffered Animation</h4>
+        <br>
+        <button onclick="drawC12()">Draw</button>
+        <br>
+        <br>
+        <canvas id="c12"></canvas>
+</section>
+
+    <script src="app.js"></script>
+</body>
+</html>
